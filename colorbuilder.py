@@ -3,7 +3,8 @@ from typing import Any,NewType,List
 
 class ColorBuilder(ABC):
 	'''
-	La classe ColorBuilder specifie la démarche à suivre pour construire des objects de type couleur
+	La classe ColorBuilder specifie la démarche à suivre pour construire des objects de type couleur.
+	Lobjet couleur à pour but de faciliter la compréhension, il pourrait être n'importe quel type dobjet.
   '''
 
 	@abstractproperty
@@ -37,24 +38,27 @@ de constucteurs pour construire autrement si besoin est.
 		self._color = Color1()
 
 	@property
-	def color(self) -> Color1	:
+	def color(self) -> Color1 :
 		'''
-	Les constructeurs concrêts doivent produirent leurs
-	méthodes pour récupérer les résutlats.
+	Les constructeurs concrêts doivent définir leurs
+	méthodes pour en récupérer les éventuels fruits.
 	
-	Cest pour cette raison que des types variés de construceurs peuvent créer de nouvelles couleurs qui
-	ne correspondent pas à la même interface. 
+	Cest pour cette raison que des types variés de constructeurs peuvent créer de nouveaux objet de type couleur qui
+	pourront dépendre dune autre interface. 
 
 	Toutefois, ces méthodes ne peuvent pas être déclarés dans l'interface du Builder primordial,
-	considérant un langage typé
+	considérant un langage typé, ce qui n'est pas le cas de Python mais beaucoup de langage très populaires le sont...
 
-	Habituellement, après avoir retourné le résutlat pour main, on s'attends de  l'instance de constructeur
+	Habituellement, après avoir retourné le résutlat pour main, on s'attends de l'instance de constructeur
 	d'être prête à produire une autre couleur.
 
-	Cest Pourquoi je recommande d'appeller la méthode reset a la fin du bloc de la méthode en question.
+	Cest Pourquoi jai décider d'appeller la méthode reset a la fin du bloc de la méthode en question.
 
 	Toutefois, si ce comportement n'est pas obligatoire, vous pouvez faire des construceurs qui attendent
-	explicitement une invocation de la méthode reset de la part de main avant de délaisser le fruit de son labeur. Pas facile la vie pour le constructeur !
+	explicitement une invocation de la méthode reset de la part de main avant de délaisser le fruit de son labeur. 
+	
+	Pas facile la vie pour le constructeur ! Il se fait malmené par le directeur, il attend les ordres du client, alors
+	qu'il pourrait très bien tout faire tout seul !
     		'''
 		color = self._color
 
@@ -66,50 +70,52 @@ de constucteurs pour construire autrement si besoin est.
 
 	def produce_part_a(self)-> None :
 		'''
-	La partie A de l'objet finale implémenté par la méthode du constructeur concrêt 1 
+	La partie A de lobjet final implémenté par la méthode du ColorConcreteBuilder1 
 		'''
 		self._color.add('middle blue')
 		
 
 	def produce_part_b(self) -> None :
 		'''
-	La partie B de l'objet finale implémenté par la méthode du constructeur concrêt 1 
+	La partie B de lobjet final implémenté par la méthode du ColorConcreteBuilder1
 		'''
 		self._color.add('#68D8D6')
 
 	def produce_part_c(self)->None:
 		'''
-	La partie C de l'objet finale implémenté par la méthode du constructeur concrêt 1 
+	La partie C de lobjet final implémenté par la méthode du ColorConcreteBuilder1
 		'''
 		self._color.add('rgb(104,216,214)')	
 
 
 class Color1 :
 	'''
-La classe couleur n'est pas très complexe à première vue mais on veux pouvoir ajouter différentes notations
-afin de facilité le travail du Décorateur.
+Lobjet n'est pas très complexe à première vue mais on veux pouvoir ajouter différentes notations
+afin de facilité lutilisation éventuelle.
 
 Contrairement à d'autres patterns de création, différents constructeurs concrêts peuvent produire des objets
-qui ne sont pas vraiment liés,
-qui peuvent ne pas suivre pas la même interface.
+qui ne sont pas systématiquement liés, qui peuvent donc ne pas suivre pas la même interface.
   	'''
 
 	def __init__(self) -> None : 
 		'''
-	instancie une objet de type liste pour guarder une oeil sur lensemble des différentes parties. 
+	Instancie une objet de type liste pour guarder une oeil sur lensemble des différentes parties. 
 		'''	
-		self.parts = []
+		self.parts:List[Any] = []
 
 
 	def add(self,part:Any)-> None :
 		'''
-	Méthode pour ajouter les différentes parties ensemble pour en faire un tout.	
+	Méthode pour combiner une à une les différentes parties pour en faire un tout.	
 		'''
 		self.parts.append(part)
 
 	def list_parts(self) -> None :
 		'''
-	Un méthode de courtoisie pour jetter un oeil une liste des différentes parties de lobjet couleur
+	Méthode de courtoisie pour jetter un oeil aux parties de l'objet
+	Cette méthode de courtoisie est tellement courtoise quelle ne veux pas présupposer comment elle va accomoder le 
+	développeur. Vous pouvez la changez de la manière qui vous semble adéquat ou encore je peux implementer une 
+	esquisse au besoin.
 		'''
 		pass
 		
@@ -121,7 +127,7 @@ Le Directeur est seulement responsable dexecuter les différentes étapes de la 
 
 Il est utile lorsque vient le temps de produire des couleurs qui ont une configuration spécifique.
 
-À strictement parler, le directeur est optionnel, car main peut controler le constructeur directement 
+À strictement parler, le directeur est optionnel, car le client(main) peut contrôler le constructeur directement 
 	'''
   
 	def __init__(self)-> None :
@@ -139,9 +145,11 @@ Il est utile lorsque vient le temps de produire des couleurs qui ont une configu
 	def builder(self,builder:ColorBuilder)-> None : 
 
 		'''
-Le directeur travaille avec nimporte quelle instance de code que main lui donne. 
+Le directeur travaille avec nimporte quelle instance de code que le client(main) lui donne. 
 
-Ce faisait, le code du client peut potentiellement altérer le type final de la nouvelle couleur assemblée		
+Ce faisait, le code du client peut potentiellement altérer le type final de la nouvelle couleur assemblée ! 
+
+Vos désirs sont des ordres, pour le directeur, qui prends grand soin de bien les transmettre au constructeur ;)
     		'''	
 
 		self._builder = builder 
@@ -153,20 +161,21 @@ Ce faisait, le code du client peut potentiellement altérer le type final de la 
 
 	def build_minimal_viable_product(self) -> None : 
 		self.builder.produce_part_a()
-		print('Bob va faire une couleur')
+		
 		
 
-	def build_full_featured_product(self) -> None:
+	def build_full_featured_product(self) -> None :
 		self.builder.produce_part_a()
 		self.builder.produce_part_b()	
 		self.builder.produce_part_c()	
-		print('Bob je veux plus de details...')
+		
 
 def colorbuilders():
 	'''
-  Interface cocasse pour illustrer les séquences possibles de construction. Les classes,méthodes et de nombreux 
-  éléments du programmes sont en anglais mais commentés intensivement en francais afin de facilier la
-  compréhension. Le directeur donne les ordres et le builder exécute dépendemment des instructions qu'il a recu. 
+  Interface cocasse pour illustrer les séquences possibles de construction. Les classes, méthodes et de nombreux 
+  éléments du programmes sont en anglais mais commentés en francais afin de faciliter la
+  compréhension. Le directeur donne les ordres et le builder exécute dépendemment des instructions qu'il a recu.
+  On doit spécifier le constructeur spécifique pour le directeur approprié.
   
   Le builder pourrait très bien fonctionner tout seul toutefois.
   L'invocation de la méthode colorbuilders retourn un constructeur et un directeur.
