@@ -1,0 +1,45 @@
+In the factory method, 
+
+the method factory.hide(self,x), for any given x, factory.hide(self,x) dosent return being invisible. It just means to hide.
+The notion of hiding implies that you have something to hide behind or into.
+
+ex : 
+
+IF 
+
+  {
+
+    x = thin air 
+
+    y = lambda x: x.isHidden?
+
+
+    factory.hide(y(x)) -> z
+
+  }
+
+IMPLIES 
+
+  {
+
+    z == False
+
+  }
+
+
+The formal exception would be an unusually high level skill for factory hide skill,
+
+where the factory's level would be far beyond 
+
+what the player could realistically think.
+
+
+Therefore, 
+
+FOR ANY x, 
+
+x must be not thin air
+
+IF x == 'in plain sight' is a decorator to the method hide, or a proprety of the object himself that is trying to hide, it 
+is not synonymous with being invisible. If it was the case, then it would be called 'invisible in plain sight' which dosent
+make much sense. 
