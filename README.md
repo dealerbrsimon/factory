@@ -1,2 +1,2 @@
-# factory
-Exemples of factory implementation
+# FACTORY
+Exemples of the Factory design pattern implementation
