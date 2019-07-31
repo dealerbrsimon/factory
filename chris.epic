@@ -1,3 +1,8 @@
+Discussion about the abstractions used in the present program. Please present your alternative Logical reasoning if you
+are in disagreement. Pseudo-code is favored or a langage with simple synthax so we can avoid mistakes
+
+The context is a non-epic main method, therefore we have to make reasonable assumptions on certain skill levels
+
 In the factory method, 
 
 the method factory.hide(self,x), for any given x, factory.hide(self,x) dosent return being invisible. It just means to hide.
@@ -33,12 +38,15 @@ where the factory's level would be far beyond
 
 what the player could realistically think.
 
+The other option would be maybe that the Factory is trying to hide in the ground, if so, the appropriate method would be 
+a movemement action like factory.move(dig(x)) where x == ( y lambda x:  x >= factory.current.size ) 
+
 
 Therefore, 
 
 FOR ANY x, 
 
-x must be not thin air
+x must be not thin air OR x must not be in the ground, because it implies a move action.
 
 IF x == 'in plain sight' is a decorator to the method hide, or a proprety of the object himself that is trying to hide, it 
 is not synonymous with being invisible. If it was the case, then it would be called 'invisible in plain sight' which dosent
