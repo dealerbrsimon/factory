@@ -1,15 +1,6 @@
 from abc import ABC, abstractmethod, abstractproperty
 from typing import Any,NewType,List
 
-color_name = NewType('color_name',str)
-
-color_code_hex = NewType('color_code',str)
-
-color_code_rbg = NewType('color_code_rbg',str)
-
-color = NewType('color',str)
-
-
 class ColorBuilder(ABC):
 	'''
 	La classe ColorBuilder specifie la démarche à suivre pour construire des objects de type couleur
