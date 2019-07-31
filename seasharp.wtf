@@ -11,3 +11,26 @@ def y(x):
 y(2) -> 3,4
 
 '''
+
+In Python or more functional programming, we make heavy use of some lambda calculus.
+
+Therefore 
+	{
+
+		y = lambda x:  return x + 2 
+
+	}
+
+IS EQUAL TO
+
+	{
+
+		def y(x):
+			return x+2
+	
+	}
+
+Or more consisely,
+
+(lambda x:  return x+2) == (def y(x):  return x+2)
+
