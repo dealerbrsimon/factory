@@ -1,0 +1,41 @@
+Cher Nicolas,
+
+J'ai écris plusieurs lettres à Christian mais je me suis rendu compte que je n'ai jamais pris le temps de t'écrire quoi que
+ce soit. Je ne suis vraiment pas familié avec 'Github' mais je vais faire de mon mieux pour que le format soit convenable.
+
+Quand tu auras le temps, j'aimerais que tu me donnes d'abord ton avis sur mon implementation très basique du pattern de 
+Désign Factory. Je ne fais pas que Python, j'aime beaucoup C++ et JavaScript, mais je voulais mettre l'emphase sur les concepts
+et non sur le langage de programmation. Je trouve que Python est très utile pour abstraire le programme lui même
+et de se concenter sur la logique, tout en ayant une idée de l'implementation concrète qui aurait
+lieu, indépendemment du langage ( ou tant mieux si straight en Python is good enough lol ) 
+
+Je sais que ma passion nouvelle pour la programmation est un peu surprenante, mais comme mentionné, mon prof à Concordia a pris
+le temps de me montrer les liens entre la philosophie et les mathématiques et l'aboutissement à la programmation afin que je 
+puisse rapidement consolider mes apprentissages. 
+
+Quand Composer m'a montrer son implementation, je n'ai pas pu m'empêcher d'avoir une petite pensée pour toi. Je suis beaucoup
+plus fervent d'une approche fonctionnelle quand la rigueur est de mise et que le contexte s'y porte bien, mais je dois avoué
+que je me suis découvert une passion pour la programmation orienté objet dans le cadre du développement logiciel. 
+
+Je ne suis encore qu'un novice, mais comme tu me connais j'ai une grande soif de connaissances et je prends autant de plaisir à
+apprendre les subtilités du langage C, les structures de données, algorithmes et Pattern de Design que j'en prenais à lire de 
+nouveaux livres de donjon dragon. Pour moi bien savoir les règles ca permet de s'amuser encore d'avantage. J'ai même refait 
+mes mathématiques en partant de la maternelle jusqu'à l'université pour pouvoir mieux comprendre certains problèmes d'analyse
+de donnés !! Quand je commit je commit haha, je voulais effacer tout les mauvais souvenirs que j'ai pu avoir en lien avec les 
+maths dans mon esprit.
+
+Jadis tu as souvent été le stratège lors de quelques unes de nos escapades Imaginaires ou Tales'esque. La vie nous a mené dans
+différents chemins mais tu as toujours été pour moi une figure de sagesse et d'intelligence. J'ai toujours eu une grande 
+imagination mais tu me ramenais sur Terre. 
+
+Je voulais juste prendre le temps de te remercier. Je me surprends souvent à me demander qu'es-ce que Nicolas en penserait, 
+car tu avais le don de nous concocter de brillantes stratégies pour n'importe quel problème :)
+
+PS: J'espère que les méthodes de certains patterns décorateurs en programmation sont moins équivoques et mieux
+documentés que les règles de donjon et dragon relativement à se .cacher(self) dans le cas où 'in plain sight' est true...
+
+Pour toi et moi c'était évident, mais parfois certains commentaires et exemples concrèts auraient éviter des disputes :P
+
+Au plaisir,
+
+Simon
