@@ -29,13 +29,16 @@ class ColorBuilder(ABC):
 
 class ColorConcreteBuilder1(ColorBuilder):
 	'''
-La classe en question poursuit l'implémentation de linterface du constructeur plus général et donne une implementation concrète pour les étapes du processus de construction. Vous pouvez ajoutez d'autres variations de constucteurs pour construire autrement si besoin est. 
-  '''		
+La classe en question poursuit l'implémentation de linterface du constructeur plus général et donne une
+implementation concrète pour les étapes du processus de construction. Vous pouvez ajoutez d'autres variations
+de constucteurs pour construire autrement si besoin est. 
+  	'''		
 
 	def __init__(self)-> None :
 		'''
-	Une instance concrète du constructeur avec un object vierge qui pourra être utiliser pour construire le reste dans le processus d'assemblage	
-    '''
+	Une instance concrète du constructeur avec un object vierge qui pourra être utiliser pour construire
+	le reste dans le processus d'assemblage	
+    		'''
 		self.reset()
 
 
@@ -48,17 +51,20 @@ La classe en question poursuit l'implémentation de linterface du constructeur p
 	Les constructeurs concrêts doivent produirent leurs
 	méthodes pour récupérer les résutlats.
 	
-	Cest pour cette raison que des types variés de construceurs peuvent créer de nouvelles couleurs qui ne correspondent pas à la même interface. 
+	Cest pour cette raison que des types variés de construceurs peuvent créer de nouvelles couleurs qui
+	ne correspondent pas à la même interface. 
 
 	Toutefois, ces méthodes ne peuvent pas être déclarés dans l'interface du Builder primordial,
 	considérant un langage typé
 
-	Habituellement, après avoir retourné le résutlat pour main, on s'attends de  l'instance de constructeur d'être prête à produire une autre couleur.
+	Habituellement, après avoir retourné le résutlat pour main, on s'attends de  l'instance de constructeur
+	d'être prête à produire une autre couleur.
 
 	Cest Pourquoi je recommande d'appeller la méthode reset a la fin du bloc de la méthode en question.
 
-	Toutefois, si ce comportement n'est pas obligatoire, vous pouvez faire des construceurs qui attendent explicitement une invocation de la méthode reset de la part de main avant de délaisser le fruit de son labeur. Pas facile la vie pour le constructeur !
-    '''
+	Toutefois, si ce comportement n'est pas obligatoire, vous pouvez faire des construceurs qui attendent
+	explicitement une invocation de la méthode reset de la part de main avant de délaisser le fruit de son labeur. Pas facile la vie pour le constructeur !
+    		'''
 		color = self._color
 
 		self.reset()
@@ -89,11 +95,13 @@ La classe en question poursuit l'implémentation de linterface du constructeur p
 
 class Color1 :
 	'''
-La classe couleur n'est pas très complexe à première vue mais on veux pouvoir ajouter différentes notations afin de facilité le travail du Décorateur.
+La classe couleur n'est pas très complexe à première vue mais on veux pouvoir ajouter différentes notations
+afin de facilité le travail du Décorateur.
 
-Contrairement à d'autres patterns de création, différents constructeurs concrêts peuvent produire des objets qui ne sont pas vraiment liés,
+Contrairement à d'autres patterns de création, différents constructeurs concrêts peuvent produire des objets
+qui ne sont pas vraiment liés,
 qui peuvent ne pas suivre pas la même interface.
-  '''
+  	'''
 
 	def __init__(self) -> None : 
 		'''
@@ -141,8 +149,9 @@ Il est utile lorsque vient le temps de produire des couleurs qui ont une configu
 
 		'''
 Le directeur travaille avec nimporte quelle instance de code que main lui donne. 
+
 Ce faisait, le code du client peut potentiellement altérer le type final de la nouvelle couleur assemblée		
-    '''	
+    		'''	
 
 		self._builder = builder 
 
@@ -167,6 +176,7 @@ def colorbuilders():
   Interface cocasse pour illustrer les séquences possibles de construction. Les classes,méthodes et de nombreux 
   éléments du programmes sont en anglais mais commentés intensivement en francais afin de facilier la
   compréhension. Le directeur donne les ordres et le builder exécute dépendemment des instructions qu'il a recu. 
+  
   Le builder pourrait très bien fonctionner tout seul toutefois.
   L'invocation de la méthode colorbuilders retourn un constructeur et un directeur.
 	'''
