@@ -1,0 +1,13 @@
+for C# devs ( if you did not get seasharp and C# I do not know what to tell you... ) 
+
+In Python you can return multiple fruits from a same function, in some other langage it might not be a common thing but
+here is an exemple to illustrate the logic/abstraction
+
+def y(x):
+	return x+1,x+2
+  
+'''
+
+y(2) -> 3,4
+
+'''
